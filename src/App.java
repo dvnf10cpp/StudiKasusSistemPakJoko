@@ -4,7 +4,7 @@ public class App {
     final static Scanner in = new Scanner(System.in);           
     static Admin inCharge = null;
     public static void main(String[] args) throws Exception {
-        menu();
+        login();
     }
 
     public static void login(){
