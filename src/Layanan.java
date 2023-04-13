@@ -19,6 +19,8 @@ public class Layanan{
     }
 
     public String toString(){
-        return "";
+        return 
+        "Nama : " + name + "\n" + 
+        "Price : " + price + (description == null ? "" : "Description : " + description + "\n" );
     }
 }
