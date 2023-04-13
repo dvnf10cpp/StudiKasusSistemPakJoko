@@ -34,7 +34,8 @@ public class Layanan{
     public String toString(){
         return 
         "Nama : " + name + "\n" + 
-        "Price : " + getFormattedPrice() + (description == null ? "" : "Description : " + description + "\n" );
+        "Price : " + getFormattedPrice() + "\n" +
+        (description == null ? "" : "Description : " + description + "\n" );
     }
 
     public String getName() {
