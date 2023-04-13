@@ -11,7 +11,6 @@ void tambah();
 void display();
 void initData();
 void displayLayanan();
-void displayAntrian();
 string repeat(const string &str, int n); 
 vector<Admin> listAdmin;
 vector<Antrian> listAntrian;
@@ -61,7 +60,7 @@ void menu(){
 }
 
 void tambah(){
-
+    
 }
 
 void display(){
@@ -82,11 +81,14 @@ void initData(){
 }
 
 void displayLayanan(){
-
-}
-
-void displayAntrian(){
-
+    cout << "Daftar Layanan : ";
+    int i = 1;
+    for(Layanan &layanan : listLayanan){
+        cout << repeat("-",40) << endl;
+        cout << "Layanan nomor : " << i++ << endl;
+        cout << layanan.toString() << endl;
+        cout << repeat("-",40) << endl;
+    }
 }
 
 string repeat(const string &str, int n){
