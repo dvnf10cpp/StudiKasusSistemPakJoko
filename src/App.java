@@ -52,17 +52,20 @@ public class App {
         DaftarLayanan dl = new DaftarLayanan();
         System.out.println("=".repeat(40)); 
         dl.displayLayanan();
-        System.out.println("Masukkan nama pemesan : ");
+        System.out.print("Masukkan nama pemesan : ");
         String pemesan = in.nextLine();
-        System.out.println("Masukkan nomor telepon : ");
+        System.out.print("Masukkan nomor telepon : ");
         String nomor = in.nextLine();
-        System.out.println("Masukkan nomor plat : ");
+        System.out.print("Masukkan nomor plat : ");
         String plat = in.nextLine();
         Antrian antrian = new Antrian(pemesan, nomor, plat);
         do {
             System.out.print("Masukkan layanan yang ingin ditambahkan : ");
             int index = in.nextInt(); in.nextLine();
             antrian.addLayanan(dl.getLayanan(index));
+            if(!antrian.isFull()){
+                antrian.addTotalPrice(dl.getLayanan(index).getPrice());
+            }
             System.out.println("Apakah anda masih ingin menambahkan layanan ? (y/n)");
             select = in.nextLine().charAt(0);   
         } while(select != 'n');

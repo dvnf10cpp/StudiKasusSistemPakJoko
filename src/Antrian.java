@@ -47,18 +47,21 @@ public class Antrian {
         totalHarga += price;
     }
 
+    public boolean isFull(){
+        return layanans[2] != null;
+    }
 
     public String toString(){
         String temp = 
         "Name : " + name + "\n" + 
         "Phone : " + phone + "\n" + 
         "License : " + licensePlate + "\n" + 
-        "Daftar Layanan : ";
+        "Daftar Layanan : " + "\n";
         for(int i = 0; i < layanans.length; i++){
             if(layanans[i] == null) break;
-            temp += "Layanan Nomor : " + (i + 1) + "\n" + layanans[i];
+            temp += "Layanan Nomor : " + (i + 1) + "\n" + layanans[i] + "\n";
         }
-        temp += "-".repeat(40) + "\n" + "Total : " + totalHarga;
+        temp += "-".repeat(40) + "\n" + "Total : " + getFormattedPrice();
         return temp;
     }
     public String getName() {
