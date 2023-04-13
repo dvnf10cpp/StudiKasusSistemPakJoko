@@ -4,10 +4,11 @@ public class App {
     final static Scanner in = new Scanner(System.in);           
     static Admin inCharge = null;
     public static void main(String[] args) throws Exception {
-        login();
+        menu();
     }
 
     public static void login(){
+        System.out.println("=".repeat(40));
         System.out.println("Selamat datang pada laman login terminal sederhana");
         do{
             System.out.print("Username     : ");
@@ -24,6 +25,7 @@ public class App {
     }
 
     public static void menu(){
+        System.out.println("=".repeat(40));
         System.out.println("Selamat datang pada aplikasi terminal sederhana");
         System.out.println("Silahkan pilih salah satu menu dibawah ini");
         System.out.println("1. Menampilkan semua antrian pada hari ini");
@@ -33,12 +35,38 @@ public class App {
         char choice = in.nextLine().charAt(0);
         switch(choice){
             case '1':
+                DaftarAntrian.displayAntrian();
+                menu();
                 break;
             case '2':  
+                addAntrian();
                 break;
             case '3':
                 login();
                 break;
         }
+    }
+
+    public static void addAntrian(){
+        char select = ' ';
+        DaftarLayanan dl = new DaftarLayanan();
+        System.out.println("=".repeat(40)); 
+        dl.displayLayanan();
+        System.out.println("Masukkan nama pemesan : ");
+        String pemesan = in.nextLine();
+        System.out.println("Masukkan nomor telepon : ");
+        String nomor = in.nextLine();
+        System.out.println("Masukkan nomor plat : ");
+        String plat = in.nextLine();
+        Antrian antrian = new Antrian(pemesan, nomor, plat);
+        do {
+            System.out.print("Masukkan layanan yang ingin ditambahkan : ");
+            int index = in.nextInt(); in.nextLine();
+            antrian.addLayanan(dl.getLayanan(index));
+            System.out.println("Apakah anda masih ingin menambahkan layanan ? (y/n)");
+            select = in.nextLine().charAt(0);   
+        } while(select != 'n');
+        DaftarAntrian.addAntrian(antrian);
+        menu();
     }
 }

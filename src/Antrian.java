@@ -6,7 +6,6 @@ public class Antrian {
     private int totalHarga;
     private int index;
 
-    
     public Antrian(){
 
     }
@@ -25,7 +24,7 @@ public class Antrian {
 
     public void addLayanan(Layanan layanan){
         if(layanans[2] != null){
-            System.out.println("");
+            System.out.println("Layanan sudah penuh!");
         } else {
             layanans[index++] = layanan;  
         }
@@ -37,7 +36,16 @@ public class Antrian {
 
 
     public String toString(){
-        return "";
+        String temp = 
+        "Name : " + name + "\n" + 
+        "Phone : " + phone + "\n" + 
+        "License : " + licensePlate + "\n" + 
+        "Daftar Layanan : ";
+        for(int i = 0; i < layanans.length; i++){
+            if(layanans[i] == null) break;
+            temp += "Layanan Nomor : " + (i + 1) + "\n" + layanans[i];
+        }
+        return temp;
     }
     public String getName() {
         return name;

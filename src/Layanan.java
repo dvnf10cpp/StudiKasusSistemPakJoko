@@ -15,12 +15,25 @@ public class Layanan{
     }
 
     public String getFormattedPrice(){
-        return "";
+        String temp = String.valueOf(price);
+        String res = "", formatted = "Rp. ";
+        int counter = 0;
+        for(int i = temp.length()-1; i >= 0; i--){
+            res += temp.charAt(i);   
+            counter++;
+            if(counter % 3 == 0 && i != 0){
+                res += ",";
+            } 
+        }
+        for(int i = res.length()-1; i >= 0; i--){
+            formatted += res.charAt(i);
+        }
+        return formatted;
     }
 
     public String toString(){
         return 
         "Nama : " + name + "\n" + 
-        "Price : " + price + (description == null ? "" : "Description : " + description + "\n" );
+        "Price : " + getFormattedPrice() + (description == null ? "" : "Description : " + description + "\n" );
     }
 }
