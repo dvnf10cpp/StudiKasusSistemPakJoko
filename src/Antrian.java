@@ -18,8 +18,21 @@ public class Antrian {
         index = 0;
     }
 
-    public String getFormattedString(){
-        return "";
+    public String getFormattedPrice(){
+        String temp = String.valueOf(totalHarga);
+        String res = "", formatted = "Rp. ";
+        int counter = 0;
+        for(int i = temp.length()-1; i >= 0; i--){
+            res += temp.charAt(i);   
+            counter++;
+            if(counter % 3 == 0 && i != 0){
+                res += ",";
+            } 
+        }
+        for(int i = res.length()-1; i >= 0; i--){
+            formatted += res.charAt(i);
+        }
+        return formatted;   
     }
 
     public void addLayanan(Layanan layanan){
@@ -45,6 +58,7 @@ public class Antrian {
             if(layanans[i] == null) break;
             temp += "Layanan Nomor : " + (i + 1) + "\n" + layanans[i];
         }
+        temp += "-".repeat(40) + "\n" + "Total : " + totalHarga;
         return temp;
     }
     public String getName() {
