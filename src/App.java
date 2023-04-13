@@ -8,6 +8,7 @@ public class App {
     }
 
     public static void login(){
+        inCharge = null;
         System.out.println("=".repeat(40));
         System.out.println("Selamat datang pada laman login terminal sederhana");
         do{
@@ -35,8 +36,7 @@ public class App {
         char choice = in.nextLine().charAt(0);
         switch(choice){
             case '1':
-                DaftarAntrian.displayAntrian();
-                menu();
+                displayAntrian();
                 break;
             case '2':  
                 addAntrian();
@@ -71,5 +71,10 @@ public class App {
         } while(select != 'n');
         DaftarAntrian.addAntrian(antrian);
         menu();
+    }
+
+    public static void displayAntrian(){
+        DaftarAntrian.displayAntrian();
+        menu(); 
     }
 }
