@@ -8,13 +8,13 @@ public class DaftarAdmin {
         return temporary;
     }
 
-    public static boolean authenticate(String username, String password){
+    public static Admin authenticate(String username, String password){
         for(Admin admin : daftarAdmin){
             if(admin.isMatch(username, password)){
-                return true;
+                return admin;
             }
         }
-        return false; 
+        return null; 
     }
 
     public static Admin[] getDaftar(){
