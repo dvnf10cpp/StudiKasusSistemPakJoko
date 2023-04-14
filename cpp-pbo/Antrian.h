@@ -27,6 +27,7 @@ class Antrian {
         this->phone = phone;
         this->licensePlate = licensePlate;
         index = 0;
+        totalHarga = 0;
     }
 
     string getFormattedPrice(){
@@ -45,7 +46,7 @@ class Antrian {
         return formatted;
     }
 
-    void addLayanan(Layanan &layanan){
+    void addLayanan(Layanan layanan){
         if(index == 3){
             cout << "Layanan sudah penuh!" << endl;
             return;
@@ -71,9 +72,9 @@ class Antrian {
 
     string toString(){
         string temp = 
-        "Name : " + name + "\n" + 
-        "Phone : " + phone + "\n" + 
-        "License : " + licensePlate + "\n" + 
+        "Name : " + this->name + "\n" + 
+        "Phone : " + this->phone + "\n" + 
+        "License : " + this->licensePlate + "\n" + 
         "Daftar Layanan : " + "\n";
         for(int i = 0; i < 3; i++){
             if(layanans[i].getName() == "Empty") 

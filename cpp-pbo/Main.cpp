@@ -22,6 +22,7 @@ vector<Antrian> Database::listAntrian;
 vector<Layanan> Database::listLayanan;
 
 int main(){
+    //blom masuk pas instansiasi object
     Database::initData();
     App::login(); 
     return 0;

@@ -36,6 +36,10 @@ class Database {
         return listAntrian.empty();
     }
 
+    static Layanan getLayanan(int index){ 
+        return listLayanan[--index % 5];    
+    }
+
     static void initData(){
         //List admin
         listAdmin.push_back(Admin("joko", "ini_password_joko"));

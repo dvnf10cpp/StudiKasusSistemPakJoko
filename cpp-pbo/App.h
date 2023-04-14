@@ -60,10 +60,11 @@ class App {
         Database::displayLayanan(); 
         Antrian antrian;
         string name,phone,license;
-        char pilih,choice = 'y';
+        char choice = 'y';
+        int pilih;
         cout << "Masukkan nama pemesan : ";
-        getline(cin,name);
-        cin >> std::ws;
+        getline(cin,name);           
+        cin.ignore(100,'\n');
         cout << "Masukkan nomor telepon : ";
         cin >> phone;
         cout << "Masukkan nomor plat : ";
@@ -71,7 +72,8 @@ class App {
         antrian = Antrian(name, phone, license);
         do{
             cout << "Masukkan nomor layanan yang ingin ditambahkan : ";
-            cin >> pilih;
+            cin >> pilih; 
+            antrian.addLayanan(Database::getLayanan(pilih));
             cout << "Apakah anda masih ingin menambahkan layanan ? (y/n) : ";
             cin >> choice;
         } while(choice == 'y');
@@ -83,9 +85,11 @@ class App {
         cout << repeat("=",40) << endl;
         if(Database::antrianEmpty()){ 
             cout << "Tidak ada daftar layanan!" << endl;
+            menu();
             return;
         }
         Database::displayAntrian();
+        menu(); 
     }
 
     static string repeat(const string &str, int n){
