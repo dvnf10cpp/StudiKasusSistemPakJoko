@@ -1,7 +1,8 @@
 #include <bits/stdc++.h>
-#include <Admin.h>
-#include <Layanan.h>
-#include <Antrian.h>
+#include "Admin.h"
+#include "Layanan.h"
+#include "Antrian.h"
+#include "Database.h"
 
 using namespace std;
 
@@ -11,6 +12,7 @@ void tambah();
 void display();
 void initData();
 void displayLayanan();
+bool authenticate(string &name, string &password);
 string repeat(const string &str, int n); 
 vector<Admin> listAdmin;
 vector<Antrian> listAntrian;
@@ -23,6 +25,7 @@ int main(){
 }
 
 void login(){
+    bool done = 0;
     cout << (repeat("=",40)) << endl;
     cout << ("Selamat datang pada laman login terminal sederhana") << endl;
     do {
@@ -31,7 +34,10 @@ void login(){
         cin >> username;
         cout << "Password : ";
         cin >> password;
-
+        done = Database::authenticate(username,password);
+        if(!done){
+            cout << "Username atau password tidak matching" << endl;
+        }
     } while(1); 
     menu();
 }
@@ -64,7 +70,16 @@ void tambah(){
 }
 
 void display(){
-
+    cout << repeat("=",40) << endl;
+    if(listAntrian.empty()){
+        cout << "Tidak ada daftar layanan!" << endl;
+        return;
+    }
+    for(Antrian &antrian : listAntrian){
+        cout << repeat("-",40) << endl;
+        cout << antrian.toString() << endl;
+        cout << repeat("-",40) << endl;
+    }
 }
 
 void initData(){
@@ -97,4 +112,13 @@ string repeat(const string &str, int n){
         res += str;
     }
     return res;
+}
+
+bool authenticate(string &name, string &password){
+    for(Admin admin : listAdmin){
+        if(admin.isMatch(name,password)){
+            return true;
+        }
+    }
+    return false;
 }

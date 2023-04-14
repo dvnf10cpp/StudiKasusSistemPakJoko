@@ -1,4 +1,6 @@
 #include <bits/stdc++.h>
+#ifndef ADMIN_H
+#define ADMIN_H
 
 using namespace std;
 
@@ -25,3 +27,5 @@ class Admin{
         "Password : " + password; 
     }
 };
+
+#endif

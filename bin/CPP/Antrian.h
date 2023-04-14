@@ -1,6 +1,7 @@
 #include <bits/stdc++.h>
-#include <Layanan.h>
-
+#include "Layanan.h"
+#ifndef ANTRIAN_H
+#define ANTRIAN_H
 using namespace std;
 
 class Antrian{
@@ -83,3 +84,5 @@ class Antrian{
         return res;
     }
 };
+
+#endif

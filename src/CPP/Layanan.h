@@ -1,5 +1,6 @@
 #include <bits/stdc++.h>
-
+#ifndef LAYANAN_H
+#define LAYANAN_H
 using namespace std;
 
 class Layanan{
@@ -51,3 +52,5 @@ class Layanan{
         return name;
     }
 };
+
+#endif 
