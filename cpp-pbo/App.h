@@ -15,7 +15,7 @@ using std::string;
 
 class App {
     public:
-    void login(){
+    static void login(){
         bool done = 0;
         cout << (repeat("=",40)) << endl;
         cout << ("Selamat datang pada laman login terminal sederhana") << endl;
@@ -29,11 +29,11 @@ class App {
             if(!done){
                 cout << "Username atau password tidak matching" << endl;
             }
-        } while(1); 
+        } while(!done); 
         menu();
     }
 
-    void menu(){
+    static void menu(){
         char choice;
         cout << (repeat("=",40)) << endl;
         cout << ("Selamat datang pada aplikasi terminal sederhana") << endl;
@@ -55,12 +55,12 @@ class App {
                 break;
         }
     }
-
-    void tambah(){
-        
+ 
+    static void tambah(){
+        Database::displayLayanan(); 
     }
 
-    void display(){
+    static void display(){
         cout << repeat("=",40) << endl;
         if(Database::antrianEmpty()){ 
             cout << "Tidak ada daftar layanan!" << endl;
@@ -69,7 +69,7 @@ class App {
         Database::displayAntrian();
     }
 
-    string repeat(const string &str, int n){
+    static string repeat(const string &str, int n){
         string res = "";
         for(int i = 0; i < n; i++){
             res += str;
