@@ -22,6 +22,7 @@ class Layanan {
     Layanan(string name, int price){
         this->name = name;
         this->price = price;
+        this->description = "Empty";
     }
 
     Layanan(string name, int price, string description){
@@ -31,23 +32,7 @@ class Layanan {
     }
 
     string getFormattedPrice(){
-        string temp = std::to_string(price);
-        string formatted = "Rp. ";
-        int len = temp.size(), check = len % 3;
-        int counter = 0; bool flag = !check;
-        for(auto &c : temp){
-            formatted += c;
-            counter++;
-            if((!flag && (counter == check)) || (flag && !(counter % 3) && counter != len)){
-                formatted += ",";
-                flag = 1;
-            }
-        }
-        return formatted;
-    }
-
-    static string getFormattedPrice(int price){
-        string temp = std::to_string(price);
+        string temp = std::to_string(price); 
         string formatted = "Rp. ";
         int len = temp.size(), check = len % 3;
         int counter = 0; bool flag = !check;
@@ -63,10 +48,11 @@ class Layanan {
     }
 
     string toString(){
-        return 
-        "Nama : " + name + "\n" + 
+        string temp = "Nama : " + name + "\n" + 
         "Price : " + getFormattedPrice() + "\n" +
-        description == "" ? "" : "Description : "+ description;
+        description == "Empty" ? "" : "Description : "+ description;
+        return temp;
+        
     }
 
     string getName(){

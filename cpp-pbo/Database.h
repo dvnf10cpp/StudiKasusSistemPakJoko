@@ -54,7 +54,7 @@ class Database {
     }
 
     static void displayLayanan(){
-        cout << "Daftar Layanan : ";
+        cout << "Daftar Layanan : " << endl;
         int i = 1;
         for(Layanan &layanan : listLayanan){
             cout << repeat("-",40) << endl;

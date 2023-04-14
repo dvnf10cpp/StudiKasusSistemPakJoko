@@ -63,8 +63,7 @@ class App {
         char choice = 'y';
         int pilih;
         cout << "Masukkan nama pemesan : ";
-        getline(cin,name);           
-        cin.ignore(100,'\n');
+        cin >> name;         
         cout << "Masukkan nomor telepon : ";
         cin >> phone;
         cout << "Masukkan nomor plat : ";
