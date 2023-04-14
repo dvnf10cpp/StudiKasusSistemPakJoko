@@ -28,6 +28,10 @@ class Database {
         return false;
     }
 
+    static void addAntrian(Antrian &antrian){
+        listAntrian.push_back(antrian);                 
+    }    
+
     static bool antrianEmpty(){
         return listAntrian.empty();
     }

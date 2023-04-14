@@ -45,17 +45,19 @@ class Antrian {
         return formatted;
     }
 
-    void addLayanan(const Layanan &layanan){
+    void addLayanan(Layanan &layanan){
         if(index == 3){
             cout << "Layanan sudah penuh!" << endl;
             return;
-        } 
-        layanans[index++] = layanan;
+        }             
+        int price = layanan.getPrice();
+        addTotalPrice(&price);      
+        layanans[index++] = layanan; 
     }
 
     void addTotalPrice(int *price){
         if(price != nullptr){
-            totalHarga += *(price);
+            totalHarga += (*price);
         }
     }
 

@@ -58,6 +58,7 @@ class App {
  
     static void tambah(){
         Database::displayLayanan(); 
+        Antrian antrian;
         string name,phone,license;
         char pilih,choice = 'y';
         cout << "Masukkan nama pemesan : ";
@@ -67,12 +68,15 @@ class App {
         cin >> phone;
         cout << "Masukkan nomor plat : ";
         cin >> license;
+        antrian = Antrian(name, phone, license);
         do{
             cout << "Masukkan nomor layanan yang ingin ditambahkan : ";
             cin >> pilih;
             cout << "Apakah anda masih ingin menambahkan layanan ? (y/n) : ";
             cin >> choice;
         } while(choice == 'y');
+        Database::addAntrian(antrian);
+        menu();
     }
 
     static void display(){

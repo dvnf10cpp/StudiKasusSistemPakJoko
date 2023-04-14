@@ -72,6 +72,10 @@ class Layanan {
     string getName(){
         return name;
     }
+
+    int getPrice(){
+        return price;
+    }
 };
 
 #endif 
