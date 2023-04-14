@@ -3,6 +3,7 @@
 #include "Layanan.h"
 #include "Antrian.h"
 #include "Database.h"
+#include "App.h" 
 
 using std::cout;
 using std::cin;
@@ -17,10 +18,8 @@ void display();
 string repeat(const string &str, int n); 
 
 int main(){
-    int harga = 500000;
-    cout << Layanan::getFormattedPrice(harga) << endl; 
-    // Database::initData();
-    // login(); 
+    Database::initData();
+    App::login(); 
     return 0;
 }
 

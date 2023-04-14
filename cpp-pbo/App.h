@@ -58,6 +58,21 @@ class App {
  
     static void tambah(){
         Database::displayLayanan(); 
+        string name,phone,license;
+        char pilih,choice = 'y';
+        cout << "Masukkan nama pemesan : ";
+        getline(cin,name);
+        cin >> std::ws;
+        cout << "Masukkan nomor telepon : ";
+        cin >> phone;
+        cout << "Masukkan nomor plat : ";
+        cin >> license;
+        do{
+            cout << "Masukkan nomor layanan yang ingin ditambahkan : ";
+            cin >> pilih;
+            cout << "Apakah anda masih ingin menambahkan layanan ? (y/n) : ";
+            cin >> choice;
+        } while(choice == 'y');
     }
 
     static void display(){
