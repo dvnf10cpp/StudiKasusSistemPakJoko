@@ -17,6 +17,10 @@ void tambah();
 void display();
 string repeat(const string &str, int n); 
 
+vector<Admin> Database::listAdmin;
+vector<Antrian> Database::listAntrian;
+vector<Layanan> Database::listLayanan;
+
 int main(){
     Database::initData();
     App::login(); 
