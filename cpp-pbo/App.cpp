@@ -17,8 +17,10 @@ void display();
 string repeat(const string &str, int n); 
 
 int main(){
-    Database::initData();
-    login(); 
+    int harga = 500000;
+    cout << Layanan::getFormattedPrice(harga) << endl; 
+    // Database::initData();
+    // login(); 
     return 0;
 }
 
@@ -75,10 +77,6 @@ void display(){
     }
     Database::displayAntrian();
 }
-
-
-
-
 
 string repeat(const string &str, int n){
     string res = "";

@@ -1,1 +1,0 @@
-#### C++ Object Orriented Version

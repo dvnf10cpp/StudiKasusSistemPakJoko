@@ -45,6 +45,22 @@ class Layanan{
         return formatted;
     }
 
+    static string getFormattedPrice(int price){
+        string temp = std::to_string(price);
+        string formatted = "Rp. ";
+        int len = temp.size(), check = len % 3;
+        int counter = 0; bool flag = !check;
+        for(auto &c : temp){
+            formatted += c;
+            counter++;
+            if((!flag && (counter == check)) || (flag && !(counter % 3) && counter != len)){
+                formatted += ",";
+                flag = 1;
+            }
+        }
+        return formatted;
+    }
+
     string toString(){
         return 
         "Nama : " + name + "\n" + 
