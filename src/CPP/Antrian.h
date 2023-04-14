@@ -2,7 +2,12 @@
 #include "Layanan.h"
 #ifndef ANTRIAN_H
 #define ANTRIAN_H
-using namespace std;
+
+using std::cout;
+using std::cin;
+using std::endl;
+using std::vector;
+using std::string;  
 
 class Antrian{
     private:
@@ -24,7 +29,7 @@ class Antrian{
     }
 
     string getFormattedPrice(){
-        string temp = to_string(totalHarga);
+        string temp = std::to_string(totalHarga); 
         string formatted = "Rp. ";
         int len = temp.size(), check = len % 3;
         int counter = 0; bool flag = !check;
@@ -70,7 +75,7 @@ class Antrian{
         for(int i = 0; i < 3; i++){
             if(layanans[i].getName() == "Empty") 
                 break;  
-            temp += "Layanan Nomor : " + to_string(i + 1) + "\n" + layanans[i].toString() + "\n";
+            temp += "Layanan Nomor : " + std::to_string(i + 1) + "\n" + layanans[i].toString() + "\n";
         }
         temp += repeat("-",40) + "\n" + "Total : " + getFormattedPrice();
         return temp; 

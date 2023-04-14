@@ -1,7 +1,11 @@
 #include <bits/stdc++.h>
 #ifndef LAYANAN_H
 #define LAYANAN_H
-using namespace std;
+
+using std::cout;
+using std::cin;
+using std::vector;
+using std::string;  
 
 class Layanan{
     private:
@@ -26,7 +30,7 @@ class Layanan{
     }
 
     string getFormattedPrice(){
-        string temp = to_string(price);
+        string temp = std::to_string(price);
         string formatted = "Rp. ";
         int len = temp.size(), check = len % 3;
         int counter = 0; bool flag = !check;

@@ -2,7 +2,9 @@
 #ifndef ADMIN_H
 #define ADMIN_H
 
-using namespace std;
+using std::cout;
+using std::cin;
+using std::string;  
 
 class Admin{
     private:

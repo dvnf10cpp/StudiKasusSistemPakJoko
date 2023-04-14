@@ -4,19 +4,20 @@
 #include "Antrian.h"
 #include "Database.h"
 
-using namespace std;
+using std::cout;
+using std::cin;
+using std::endl;
+using std::vector;
+using std::string;  
 
 void login();
 void menu();
 void tambah();
 void display();
-void initData();
-void displayLayanan();
-bool authenticate(string &name, string &password);
 string repeat(const string &str, int n); 
 
 int main(){
-    initData();
+    Database::initData();
     login(); 
     return 0;
 }
