@@ -11,7 +11,7 @@ using std::endl;
 using std::vector;
 using std::string;  
 
-class Database{
+class Database {
     private:
     static vector<Admin> listAdmin;
     static vector<Antrian> listAntrian;

@@ -6,7 +6,7 @@ using std::cout;
 using std::cin;
 using std::string;  
 
-class Admin{
+class Admin {
     private:
     string name;
     string password;

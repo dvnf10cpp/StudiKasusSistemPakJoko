@@ -7,7 +7,7 @@ using std::cin;
 using std::vector;
 using std::string;  
 
-class Layanan{
+class Layanan {
     private:
     string name;
     int price;

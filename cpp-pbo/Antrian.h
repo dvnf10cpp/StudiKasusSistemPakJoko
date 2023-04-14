@@ -9,7 +9,7 @@ using std::endl;
 using std::vector;
 using std::string;  
 
-class Antrian{
+class Antrian {
     private:
     string name;
     string phone;
